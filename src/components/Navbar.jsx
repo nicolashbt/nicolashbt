@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabindex="0" className="btn btn-ghost lg:hidden">
+          <label tabIndex="0" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -12,28 +13,28 @@ function Navbar() {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
           </label>
           <ul
-            tabindex="0"
+            tabIndex="0"
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>MarketPlace</a>
+              <Link to="/marketplace">MarketPlace</Link>
             </li>
             <li>
-              <a>Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <a>About</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </div>
@@ -42,42 +43,42 @@ function Navbar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <a>Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a>Contact</a>
+            <Link to="/marketplace">MarketPlace</Link>
           </li>
           <li>
-            <a>About</a>
+            <Link to="/contact">Contact</Link>
           </li>
           <li>
-            <a>MarketPlace</a>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </div>
 
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
-          <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+          <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img src="https://api.lorem.space/image/face?hash=33791" />
             </div>
           </label>
           <ul
-            tabindex="0"
+            tabIndex="0"
             className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
+              <Link to="/profile">Profile</Link>
             </li>
             <li>
-              <a>Login</a>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-              <a>Logout</a>
+              <Link to="/">Logout</Link>
+            </li>
+            <li>
+              <Link to="/register">Register</Link>
             </li>
           </ul>
         </div>
