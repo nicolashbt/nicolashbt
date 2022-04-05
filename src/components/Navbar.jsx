@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
+
 function Navbar() {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-200">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -38,7 +40,9 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">NicolasHBT</a>
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          NicolasHBT
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
@@ -59,14 +63,12 @@ function Navbar() {
 
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
-          <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://api.lorem.space/image/face?hash=33791" />
-            </div>
+          <label tabIndex="0" className="btn btn-ghost btn-circle">
+              <CgProfile className="text-2xl"/>
           </label>
           <ul
             tabIndex="0"
-            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-box w-52"
           >
             <li>
               <Link to="/profile">Profile</Link>
