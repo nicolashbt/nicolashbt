@@ -13,6 +13,7 @@ function About() {
           className="link"
           href="https://github.com/nicolashbt/musium"
           target="_blank"
+          rel="noopener noreferrer"
         >
           here
         </a>

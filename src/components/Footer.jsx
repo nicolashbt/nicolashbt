@@ -10,17 +10,17 @@ function Footer() {
         <span>
           {footerYear} - Nicolas Hennebert &nbsp;
           <button className="btn btn-sm btn-ghost btn-circle">
-            <a href="https://github.com/nicolashbt" target="_blank">
+            <a href="https://github.com/nicolashbt" target="_blank" rel="noopener noreferrer">
               <FaGithub className="inline text-xl" />
             </a>
           </button>
           <button className="btn btn-sm btn-ghost btn-circle">
-            <a href="https://www.linkedin.com/in/nicolashbt/" target="_blank">
+            <a href="https://www.linkedin.com/in/nicolashbt/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="inline text-xl" />
             </a>
           </button>
           <button className="btn btn-sm btn-ghost btn-circle">
-            <a href="mailto:nicolas.hbt@protonmail.com" target="_blank">
+            <a href="mailto:nicolas.hbt@protonmail.com" target="_blank" rel="noopener noreferrer">
               <ImMail4 className="inline text-xl" />
             </a>
           </button>

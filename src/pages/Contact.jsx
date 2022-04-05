@@ -16,7 +16,11 @@ function Contact() {
       <div>
         <ul>
           <li>
-            <a href="mailto:nicolas.hbt@protonmail.com" target="_blank">
+            <a
+              href="mailto:nicolas.hbt@protonmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button className="btn btn-sm btn-ghost">
                 <ImMail4 className="inline text-xl" />
                 &nbsp;nicolas.hbt@protonmail.com
@@ -24,7 +28,11 @@ function Contact() {
             </a>
           </li>
           <li>
-            <a href="https://github.com/nicolashbt" target="_blank">
+            <a
+              href="https://github.com/nicolashbt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button className="btn btn-sm btn-ghost">
                 <FaGithub className="inline text-xl" />
                 &nbsp;/nicolashbt
@@ -32,7 +40,11 @@ function Contact() {
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/nicolashbt/" target="_blank">
+            <a
+              href="https://www.linkedin.com/in/nicolashbt/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <button className="btn btn-sm btn-ghost">
                 <FaLinkedin className="inline text-xl" />
                 &nbsp;/nicolashbt
