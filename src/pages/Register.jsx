@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
+import { toast } from "react-toastify";
 import { FaAngleRight } from "react-icons/fa";
 
 function Register() {
@@ -49,7 +50,7 @@ function Register() {
 
       navigate("/");
     } catch (error) {
-      console.log(error);
+      toast.error('Something went wrong')
     }
   };
 

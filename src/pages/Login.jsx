@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { toast } from "react-toastify";
 import { FaAngleRight } from "react-icons/fa";
 
 function Login() {
@@ -32,7 +33,7 @@ function Login() {
         navigate("/");
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Wrong credentials");
     }
   };
 
