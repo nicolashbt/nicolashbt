@@ -5,7 +5,7 @@ function Footer() {
   const footerYear = new Date().getFullYear();
 
   return (
-    <footer className="footer text-primary-content footer-center bg-base-200 p-3">
+    <footer className="footer text-primary-content footer-center bg-base-300 p-3">
       <div>
         <span>
           {footerYear} - Nicolas Hennebert &nbsp;
