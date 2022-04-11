@@ -94,7 +94,7 @@ function CreateListing() {
   return (
     <div className="">
       <header>
-        <p className="text-3xl">Create a Listing</p>
+        <p className="text-3xl">Create a Listing (not yet functional)</p>
       </header>
 
       <main>
