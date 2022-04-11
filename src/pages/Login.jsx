@@ -46,6 +46,7 @@ function Login() {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h3 className="text-3xl font-bold">Login</h3>
+          <p>Feel free to use the test account test@test.com - test1234</p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
           <div className="card-body">
