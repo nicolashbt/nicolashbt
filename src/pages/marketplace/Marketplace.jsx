@@ -5,10 +5,15 @@ import softwareCategoryImage from "../../assets/softwareSynth.avif";
 function Marketplace() {
   return (
     <div>
-      <h3 className="text-3xl">Categories</h3>
+      <div className="mb-5 flex flex-row">
+        <h3 className="text-3xl basis-3/4">Categories</h3>
+        <Link to="/create-listing">
+          <button className="btn btn-primary">Create listing</button>
+        </Link>
+      </div>
       <Link to="/category/hardware">
         <div
-          className="hero h-40"
+          className="hero h-40 rounded-t-lg"
           style={{ backgroundImage: `url(${hardwareCategoryImage})` }}
         >
           <div className="hero-overlay bg-opacity-60 h-2/5"></div>
@@ -22,7 +27,7 @@ function Marketplace() {
 
       <Link to="/category/software">
         <div
-          className="hero h-40"
+          className="hero h-40 rounded-b-lg"
           style={{ backgroundImage: `url(${softwareCategoryImage})` }}
         >
           <div className="hero-overlay bg-opacity-60 h-2/5"></div>
