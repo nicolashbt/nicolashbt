@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+import { useAuthStatus } from "../hooks/useAuthStatus";
+import { getAuth } from "firebase/auth";
 
 function Navbar() {
+  const { loggedIn } = useAuthStatus();
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    auth.signOut();
+    // navigate("/");
+    window.location.reload(true)
+  };
+
   return (
     <div className="navbar bg-base-300">
       <div className="navbar-start">
@@ -64,7 +76,7 @@ function Navbar() {
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
           <label tabIndex="0" className="btn btn-ghost btn-circle">
-              <CgProfile className="text-2xl"/>
+            <CgProfile className="text-2xl" />
           </label>
           <ul
             tabIndex="0"
@@ -73,15 +85,22 @@ function Navbar() {
             <li>
               <Link to="/profile">Profile</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/">Logout</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
+            {!loggedIn && (
+              <div>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+              </div>
+            )}
+
+            {loggedIn && (
+              <li>
+                <div onClick={onLogout}>Logout</div>
+              </li>
+            )}
           </ul>
         </div>
       </div>
