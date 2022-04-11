@@ -17,7 +17,7 @@ function Profile() {
   const navigate = useNavigate();
   const onLogout = () => {
     auth.signOut();
-    // navigate("/");
+    navigate("/");
     window.location.reload(true)
   };
 

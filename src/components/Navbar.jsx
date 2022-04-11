@@ -10,7 +10,7 @@ function Navbar() {
 
   const onLogout = () => {
     auth.signOut();
-    // navigate("/");
+    navigate("/");
     window.location.reload(true)
   };
 
