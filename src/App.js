@@ -9,7 +9,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import Marketplace from "./pages/Marketplace";
+import Marketplace from "./pages/marketplace/Marketplace";
+import Category from "./pages/marketplace/Category";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -27,6 +28,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/marketplace" element={<Marketplace />} />
+              <Route path="/category/:categoryName" element={<Category />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<PrivateRoute />}>
