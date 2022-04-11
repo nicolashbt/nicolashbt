@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { FaAngleRight } from "react-icons/fa";
 
 function Register() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,6 +29,8 @@ function Register() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     try {
       const auth = getAuth();
 
@@ -48,9 +51,11 @@ function Register() {
 
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 
+      setLoading(false);
       navigate("/");
     } catch (error) {
-      toast.error('Something went wrong')
+      setLoading(false);
+      toast.error("Something went wrong");
     }
   };
 
@@ -104,7 +109,13 @@ function Register() {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Register</button>
+                {loading ? (
+                  <button className="btn btn-primary loading">
+                    Loading...
+                  </button>
+                ) : (
+                  <button className="btn btn-primary">Register</button>
+                )}
               </div>
             </form>
             <div>

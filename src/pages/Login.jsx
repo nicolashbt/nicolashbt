@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { FaAngleRight } from "react-icons/fa";
 
 function Login() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -21,6 +22,7 @@ function Login() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const auth = getAuth();
@@ -29,10 +31,12 @@ function Login() {
         email,
         password
       );
+      setLoading(false);
       if (userCredential.user) {
         navigate("/");
       }
     } catch (error) {
+      setLoading(false);
       toast.error("Wrong credentials");
     }
   };
@@ -73,7 +77,13 @@ function Login() {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                {loading ? (
+                  <button className="btn btn-primary loading">
+                    Loading...
+                  </button>
+                ) : (
+                  <button className="btn btn-primary">Login</button>
+                )}
               </div>
             </form>
             <div>
