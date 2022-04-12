@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Message from "./pages/Message";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/create-listing" element={<CreateListing />} />
               <Route path="/category/:categoryName" element={<Category />} />
               <Route path="/category/:categoryName/:listingId" element={<Listing />} />
+              <Route path="/message/:sellerId" element={<Message />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<PrivateRoute />}>
