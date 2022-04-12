@@ -71,7 +71,7 @@ function Listing() {
           <div className="mt-5">
             {auth.currentUser?.uid !== listing.userRef && (
               <Link
-                to={`/dm/${listing.userRef}?listingName=${listing.name}`}
+                to={`/message/${listing.userRef}?listingName=${listing.name}`}
                 className="btn btn-secondary btn-sm"
               >
                 Contact seller
