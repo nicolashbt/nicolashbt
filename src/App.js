@@ -11,8 +11,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Marketplace from "./pages/marketplace/Marketplace";
-import Category from "./pages/marketplace/Category";
 import CreateListing from "./pages/marketplace/CreateListing";
+import Category from "./pages/marketplace/Category";
+import Listing from "./pages/marketplace/Listing";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -32,6 +33,7 @@ function App() {
               <Route path="/marketplace" element={<Marketplace />} />
               <Route path="/create-listing" element={<CreateListing />} />
               <Route path="/category/:categoryName" element={<Category />} />
+              <Route path="/category/:categoryName/:listingId" element={<Listing />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<PrivateRoute />}>
