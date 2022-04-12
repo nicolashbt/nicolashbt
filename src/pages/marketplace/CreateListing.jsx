@@ -14,7 +14,6 @@ import { v4 as uuidv4 } from "uuid";
 import Spinner from "../../components/Spinner";
 
 function CreateListing() {
-  const [geolocationEnabled, setGeolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: "hardware",
@@ -38,8 +37,6 @@ function CreateListing() {
     handDelivered,
     location,
     images,
-    latitude,
-    longitude,
   } = formData;
 
   const auth = getAuth();
@@ -65,10 +62,79 @@ function CreateListing() {
     return <Spinner />;
   }
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+
+    if (images > 5) {
+      setLoading(false);
+      toast.error("max 3 images");
+      return;
+    }
+
+    const storeImage = async (image) => {
+      return new Promise((resolve, reject) => {
+        const storage = getStorage();
+        const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`;
+
+        const storageRef = ref(storage, "images/" + fileName);
+
+        const uploadTask = uploadBytesResumable(storageRef, image);
+
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case "paused":
+                console.log("Upload is paused");
+                break;
+              case "running":
+                console.log("Upload is running");
+                break;
+              default:
+                break;
+            }
+          },
+          (error) => {
+            reject(error);
+          },
+          () => {
+            // Handle successful uploads on complete
+            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              resolve(downloadURL);
+            });
+          }
+        );
+      });
+    };
+
+    const imageUrls = await Promise.all(
+      [...images].map((image) => storeImage(image))
+    ).catch(() => {
+      setLoading(false);
+      toast.error("Images could not be uploaded");
+      return;
+    });
+
+    const formDataCopy = {
+      ...formData,
+      imageUrls,
+      timestamp: serverTimestamp(),
+    };
+
+    delete formDataCopy.images;
+
+    const docRef = await addDoc(collection(db, "listings"), formDataCopy);
+
+    setLoading(false);
+    toast.success("Listing saved");
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   };
+
   const onMutate = (e) => {
     let boolean = null;
     if (e.target.value === "true") {
@@ -139,6 +205,19 @@ function CreateListing() {
               </button>
             </div>
 
+            <label className="label">Category </label>
+            <input
+              type="text"
+              placeholder="sampler, synth..."
+              className="input input-bordered w-full"
+              id="category"
+              onChange={onMutate}
+              maxLength="32"
+              minLength="3"
+              value={category}
+              required
+            />
+
             <label className="label mt-3">Description</label>
             <textarea
               className="textarea"
@@ -206,7 +285,7 @@ function CreateListing() {
             </div>
 
             <label className="label mt-3">Images</label>
-            <p className="">The first image will be the cover (max 5).</p>
+            <p className="">The first image will be the cover (max 3).</p>
             <input
               className="block w-full text-sm text-white
               file:mr-4 file:py-2 file:px-4
@@ -224,9 +303,13 @@ function CreateListing() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary mt-6">
-            Create Listing
-          </button>
+          <div>
+            {loading ? (
+              <button className="btn btn-primary loading">Loading...</button>
+            ) : (
+              <button className="btn btn-primary mt-6">Create Listing</button>
+            )}
+          </div>
         </form>
       </main>
     </div>
