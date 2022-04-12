@@ -1,14 +1,14 @@
 function Home() {
   return (
     <div>
-      <div className="mx-auto">
+      <div className="m-auto max-w-xl">
         <h3 className="text-3xl">Home</h3>
         <div className="py-1">
           Welcome to my website, I started this project for a few reasons:
           <ol className="list-decimal list-inside">
+            <li>I want to show my future employers what I can do</li>
             <li>I want to improve my skills with React and Javascript</li>
             <li>I want to keep coding while I'm looking for a job</li>
-            <li>I want to show my future employers what I can do</li>
           </ol>
         </div>
         <div className="py-1">

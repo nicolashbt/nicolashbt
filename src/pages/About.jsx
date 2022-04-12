@@ -1,7 +1,6 @@
 function About() {
   return (
-    <div className="">
-      <div className="">
+    <div className="m-auto max-w-4xl">
         <h3 className="text-3xl">About</h3>
         <p className="py-1">
           To make this application, I used React.JS, Tailwind css and Daisy UI
@@ -35,7 +34,6 @@ function About() {
           </a>
           .
         </p>
-      </div>
     </div>
   );
 }

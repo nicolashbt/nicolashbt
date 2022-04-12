@@ -158,9 +158,9 @@ function CreateListing() {
   };
 
   return (
-    <div className="">
+    <div className="max-w-xl m-auto">
       <header>
-        <p className="text-3xl">Create a Listing (not yet functional)</p>
+        <p className="text-3xl">Create a listing</p>
       </header>
 
       <main>
@@ -179,7 +179,7 @@ function CreateListing() {
               required
             />
 
-            <label className="label mt-3">Type</label>
+            <label className="label mt-1">Type</label>
             <div className="btn-group">
               <button
                 className={
@@ -205,7 +205,7 @@ function CreateListing() {
               </button>
             </div>
 
-            <label className="label">Category </label>
+            <label className="label mt-1">Category </label>
             <input
               type="text"
               placeholder="sampler, synth..."
@@ -218,20 +218,22 @@ function CreateListing() {
               required
             />
 
-            <label className="label mt-3">Description</label>
+            <label className="label mt-1">Description</label>
             <textarea
-              className="textarea"
+              className="textarea textarea-bordered"
               placeholder=""
               id="description"
               value={description}
               onChange={onMutate}
             ></textarea>
 
-            <label className="label mt-3">Price</label>
+            <label className="label mt-1">Price</label>
+
+            <div className="flex">
             <input
               type="number"
               placeholder=""
-              className="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full w-32"
               id="price"
               min="0.00"
               max="10000.00"
@@ -239,9 +241,11 @@ function CreateListing() {
               onChange={onMutate}
               required
               value={price}
-            />
+              />
+            <p className="my-auto ml-2">€</p>
+              </div>
 
-            <label className="label mt-3">Location</label>
+            <label className="label mt-1">Location</label>
             <input
               type="text"
               placeholder=""
@@ -254,7 +258,7 @@ function CreateListing() {
               value={location}
             />
 
-            <label className="label mt-3">Pick up only</label>
+            <label className="label mt-1">Pick up only</label>
             <div className="btn-group">
               <button
                 className={
@@ -284,14 +288,14 @@ function CreateListing() {
               </button>
             </div>
 
-            <label className="label mt-3">Images</label>
-            <p className="">The first image will be the cover (max 3).</p>
+            <label className="label mt-1">Images</label>
+            <p className="mb-2">The first image will be the cover (max 3).</p>
             <input
               className="block w-full text-sm text-white
               file:mr-4 file:py-2 file:px-4
               file:rounded-full file:border-0
               file:text-sm file:font-semibold
-              file:bg-base-100 file:text-white
+              file:bg-base-200 file:text-white
               hover:file:bg-primary"
               type="file"
               id="images"
@@ -307,7 +311,7 @@ function CreateListing() {
             {loading ? (
               <button className="btn btn-primary loading">Loading...</button>
             ) : (
-              <button className="btn btn-primary mt-6">Create Listing</button>
+              <button className="btn btn-primary btn-md mt-4">Create Listing</button>
             )}
           </div>
         </form>

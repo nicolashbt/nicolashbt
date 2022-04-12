@@ -3,7 +3,7 @@ import { ImMail4 } from "react-icons/im";
 
 function Contact() {
   return (
-    <div>
+    <div className="m-auto max-w-4xl">
       <h3 className="text-3xl">Contact</h3>
       <p>
         I'm Nicolas Hennebert, I come from and currently live in Belgium. I

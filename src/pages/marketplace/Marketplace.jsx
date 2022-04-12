@@ -5,10 +5,10 @@ import softwareCategoryImage from "../../assets/softwareSynth.avif";
 function Marketplace() {
   return (
     <div>
-      <div className="mb-5 flex flex-row">
-        <h3 className="text-3xl basis-3/4">Categories</h3>
+      <div className="mb-5 flex justify-between">
+        <h3 className="text-3xl">Categories</h3>
         <Link to="/create-listing">
-          <button className="btn btn-primary">Create listing</button>
+          <button className="btn btn-primary btn-sm">Create listing</button>
         </Link>
       </div>
       <Link to="/category/hardware">
