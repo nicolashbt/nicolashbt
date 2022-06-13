@@ -10,20 +10,20 @@ function Contact() {
         started programming in September 2021. I followed an intensive training
         at Technofutur TIC. I learned all the technologies needed to become a
         Full Stack .NET developer with Angular. After some time spent looking at
-        job ads and talking to fellow developers, I decided to learn JavaScript
+        job ads and talking to fellow developers, I decided to improve my knowledge of JavaScript
         and React.
       </p>
       <div>
         <ul>
           <li>
             <a
-              href="mailto:nicolas.hbt@protonmail.com"
+              href="mailto:nicolas.hennebert@pm.me"
               target="_blank"
               rel="noopener noreferrer"
             >
               <button className="btn btn-sm btn-ghost">
                 <ImMail4 className="inline text-xl" />
-                &nbsp;nicolas.hbt@protonmail.com
+                &nbsp;nicolas.hennebert@pm.me
               </button>
             </a>
           </li>

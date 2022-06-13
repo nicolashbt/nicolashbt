@@ -20,7 +20,7 @@ function Footer() {
             </a>
           </button>
           <button className="btn btn-sm btn-ghost btn-circle">
-            <a href="mailto:nicolas.hbt@protonmail.com" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:nicolas.hennebert@pm.me" target="_blank" rel="noopener noreferrer">
               <ImMail4 className="inline text-xl" />
             </a>
           </button>

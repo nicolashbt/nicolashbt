@@ -18,7 +18,7 @@ function About() {
         <p className="py-1">
           You may be wondering why I didn't make the backend of this app. The
           reason is simple, I want to have a live version of this project and
-          hosting a .NET backend can get quite expensive.
+          hosting a .NET backend can get quite pricy.
         </p>
 
         <p className="py-1">
